@@ -2,12 +2,12 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 const CardMaxTemp = ({ maxTemp }) => (
-    <span className="maxTemp">
+    <span className="temp maxTemp">
       {maxTemp}
     </span>
 );
 
-CardMaxTemp = {
+CardMaxTemp.propTypes = {
     maxTemp: PropTypes.string.isRequired
 };
 

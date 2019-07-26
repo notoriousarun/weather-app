@@ -1,4 +1,4 @@
-var items = [
+let cardList = [
     {
         "maxTemp": 78,
         "minTemp": 67,
@@ -17,7 +17,7 @@ var items = [
         "day": "Wen",
         "weather": "rainy"
     },
-        {
+    {
         "maxTemp": 78,
         "minTemp": 64,
         "day": "Thur",
@@ -29,7 +29,7 @@ var items = [
         "day": "Friday",
         "weather": "sunny"
     },
-        {
+    {
         "maxTemp": 71,
         "minTemp": 61,
         "day": "Sat",
@@ -43,3 +43,4 @@ var items = [
     },
 ];
 
+export {cardList};

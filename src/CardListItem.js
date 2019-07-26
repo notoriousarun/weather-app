@@ -1,21 +1,23 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import DayOfWeek from './DayOfWeek';
-import CardWeatherImage from './CardImage';
+import CardWeatherImage from './CardWeatherImage';
 import CardMaxTemp from './CardMaxTemp';
 import CardMinTemp from './CardMinTemp';
 
-const Card = ({ card }) => (
+const CardListItem = ({ card }) => (
     <div className="card">
       <DayOfWeek day={card.day}/>
-      <CardWeatherImage min={card.weather}/>
-      <CardMaxTemp maxTemp={card.maxTemp}/>
-      <CardMinTemp minTemp={card.minTemp}/>
+      <CardWeatherImage weather={card.weather}/>
+      <div className="weather-state">
+        <CardMaxTemp maxTemp={card.maxTemp}/>
+        <CardMinTemp minTemp={card.minTemp}/>
+      </div>
     </div>
 );
 
-Card.PropTypes = {
+CardListItem.propTypes = {
     card: PropTypes.object.isRequired
 };
 
-export default Card;
+export default CardListItem;

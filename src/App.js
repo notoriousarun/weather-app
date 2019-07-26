@@ -1,15 +1,14 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
 import CardList from './CardList';
-import {cards} from './static-data';
+import {cardList} from './static-data';
+import './App.css';
 
-class App extents React.Component {
+class App extends React.Component {
     render() {
         return (
             <div className="App">
               <main className="App-content">
-                <CardList cards={cards}/>
+                <CardList cardList={cardList}/>
               </main>
             </div>
         );

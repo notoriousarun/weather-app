@@ -1,32 +1,36 @@
 import React from 'react';
+import image from './image.png';
 import PropTypes from 'prop-types';
 
-const CardWeatherImage = ({ weather }) => (
-      <div className="weather">
-        if(weather == "sunny") {
-            return (
-                <img className="weather-image" src=""/>
-            )
+// WeatherImage Component
+const CardWeatherImage = ({ weather }) => {
+    return (
+        <div>
+          {(() => {
+              switch(weather) {
+              case 'snowy':
+                  return (
+                      <img src={image} alt="snowy-weather" className="weather-image"/>
+                  );
+              case 'cloudy':
+                  return (
+                      <img src={image} alt="cloudy-weather" className="weather-image"/>
+                  );
+              case 'rainy':
+                  return (
+                      <img src={image} alt="rainy-weather" className="weather-image"/>
+                  );
+              default:
+                  return (
+                      <img src={image} alt="sunny-weather" className="weather-image"/>
+                  );
         }
-        if(weather == "rainy") {
-            return (
-                <img className="weather-image" src=""/>
-            )
-        }
-        if(weather == "sunny") {
-            return (
-              <img className="weather-image" src=""/>
-            )
-        }
-        if(weather == "cloudy"){
-            return (
-                <img className="weather-image" src=""/>
-            )
-        }
-      </div>
-);
+          })()}
+        </div>
+    );
+};
 
-CardWeatherImage = {
+CardWeatherImage.propTypes = {
     weather: PropTypes.string.isRequired
 };
 
