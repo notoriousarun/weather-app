@@ -2,11 +2,12 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import CardListItem from './CardListItem';
 
-const CardList = ({ cardList }) => (
+const CardList = ({ cardList}) => (
     <div className="card-list">
-      {cardList.map(card =>
-                    <CardListItem key={card.id} card={card}/>
-                   )}
+      {[...cardList.keys()].map(date =>
+           <CardListItem key={date}
+                         card={cardList.get(date)}/>
+      )}
     </div>  
 );
 
