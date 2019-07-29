@@ -1,14 +1,15 @@
 import React from 'react';
+import moment from 'moment';
 import PropTypes from 'prop-types';
 
-const DayOfWeek = ({ day }) => (
-    <span className="day">
-        {day}
-    </span>
-);
+const DayOfWeek = ({ date, handleWeekDay }) => {
+    return (
+        <span>{handleWeekDay(date)[1]}</span>
+    );
+};
 
 DayOfWeek.propTypes = {
-    day: PropTypes.string.isRequired
+    date : PropTypes.string.isRequired
 };
 
 export default DayOfWeek;

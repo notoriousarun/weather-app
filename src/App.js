@@ -1,5 +1,15 @@
 import React from 'react';
+import moment from 'moment';
 import CardList from './CardList';
+import CardListItem from './CardListItem';
+import DayOfWeek from './DayOfWeek';
+import CardWeatherImage from './CardWeatherImage';
+import CardMaxTemp from './CardMaxTemp';
+import CardMinTemp from './CardMinTemp';
+import HourlyList from './HourlyList';
+
+import { BrowserRouter as Router, Route } from 'react-router-dom';
+
 import './App.css';
 
 class App extends React.Component {
@@ -7,6 +17,27 @@ class App extends React.Component {
         data: []
     };
 
+    handleWeekDay = (date) => {
+        const data = moment(date);
+        const dow = data.day();
+        const week = {0: "Sunday",
+                      1: "Monday",
+                      2: "Tuesday",
+                      3: "Wenesday",
+                      4: "Thrusday",
+                      5: "Friday",
+                      6: "Saturday",
+                      7: "Sunday" };
+    
+        return (
+            [
+                date,
+                week[dow]
+            ]
+            
+        );
+    }
+    
     componentDidMount() {
         fetch('http://api.openweathermap.org/data/2.5/forecast?id=1277333&APPID=e69c9716f6019064c973daa6348cbea9')
             .then(response => response.json())
@@ -29,11 +60,23 @@ class App extends React.Component {
         });
         
         return (
-            <div className="App">
-              <main className="App-content">
-                <CardList cardList={dateArrayMap}/>
-              </main>
-            </div>
+            <Router>
+              <div className="App">
+                <main className="App-content">
+                  <Route path="/"
+                         render={(props) =>
+                                 <CardList {...props}
+                                           cardList={dateArrayMap}
+                                           handleWeekDay={this.handleWeekDay} />} />
+                  
+                  <Route path={`/${(this.handleWeekDay[1])}`}
+                           render={(props) =>
+                                   <HourlyList {...props}
+                                               forDate={(this.handleWeekDay)[0]}
+                                               dataMap={dateArrayMap}/>} />
+                </main>
+              </div>
+            </Router>
         );
     }
 }
