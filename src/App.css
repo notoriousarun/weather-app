@@ -3,7 +3,7 @@
     justify-content: space-around;
     width: 80%;
     padding: 10px;
-    margin: auto;
+    margin: 5% auto;
     text-align: center;
     background: #eee;
 }
@@ -16,4 +16,15 @@
 
 .temp {
     padding: 15px;
+}
+
+.hourly-list {
+    display: flex;
+    justify-content: space-around;
+    width: 80%;
+    margin: auto;
+}
+
+.hourly-list span{
+    display: block;
 }

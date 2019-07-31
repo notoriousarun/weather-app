@@ -16,11 +16,10 @@ const CardListItem = ({ card, date, handleWeekDay }) => {
         </div>
       </div>
     );
-    
 };
 
 CardListItem.propTypes = {
-    card: PropTypes.object.isRequired
+    card: PropTypes.array.isRequired
 };
 
 export default CardListItem;

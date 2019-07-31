@@ -1,11 +1,6 @@
 import React from 'react';
 import moment from 'moment';
 import CardList from './CardList';
-import CardListItem from './CardListItem';
-import DayOfWeek from './DayOfWeek';
-import CardWeatherImage from './CardWeatherImage';
-import CardMaxTemp from './CardMaxTemp';
-import CardMinTemp from './CardMinTemp';
 import HourlyList from './HourlyList';
 
 import { BrowserRouter as Router, Route } from 'react-router-dom';
@@ -66,14 +61,18 @@ class App extends React.Component {
                   <Route path="/"
                          render={(props) =>
                                  <CardList {...props}
-                                           cardList={dateArrayMap}
-                                           handleWeekDay={this.handleWeekDay} />} />
+                                           dataObject={dateArrayMap}
+                                           handleWeekDay={this.handleWeekDay} />} />           
+
                   
-                  <Route path={`/${(this.handleWeekDay[1])}`}
-                           render={(props) =>
-                                   <HourlyList {...props}
-                                               forDate={(this.handleWeekDay)[0]}
-                                               dataMap={dateArrayMap}/>} />
+                  {[...dateArrayMap.keys()].map(date =>
+                       <Route path={`/${(this.handleWeekDay(date))[1]}`}
+                              render={(props) =>
+                                      <HourlyList {...props}
+                                                  date={date}
+                                                  dataMap={dateArrayMap}/>} />
+                  )}
+
                 </main>
               </div>
             </Router>
