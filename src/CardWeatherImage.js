@@ -1,5 +1,8 @@
 import React from 'react';
-import image from './image.png';
+import image from './sunny-image.png';
+import snowImage from './snowy-image.png';
+import cloudImage from './cloud-image.png';
+import rainImage from './rain-image.png';
 import PropTypes from 'prop-types';
 
 // WeatherImage Component
@@ -10,15 +13,19 @@ const CardWeatherImage = ({ weather }) => {
               switch(weather) {
               case 'snowy':
                   return (
-                      <img src={image} alt="snowy-weather" className="weather-image"/>
+                      <img src={snowImage} alt="snowy-weather" className="weather-image"/>
                   );
-              case 'cloudy':
+              case 'overcast clouds':
                   return (
-                      <img src={image} alt="cloudy-weather" className="weather-image"/>
+                      <img src={cloudImage} alt="cloudy-weather" className="weather-image"/>
                   );
-              case 'rainy':
+              case 'broken clouds':
                   return (
-                      <img src={image} alt="rainy-weather" className="weather-image"/>
+                      <img src={cloudImage} alt="cloudy-weather" className="weather-image"/>
+                  );
+              case 'light rain':
+                  return (
+                      <img src={rainImage} alt="rainy-weather" className="weather-image"/>
                   );
               default:
                   return (

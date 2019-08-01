@@ -34,7 +34,7 @@ class App extends React.Component {
     }
     
     componentDidMount() {
-        fetch('http://api.openweathermap.org/data/2.5/forecast?id=1277333&APPID=e69c9716f6019064c973daa6348cbea9')
+        fetch('http://api.openweathermap.org/data/2.5/forecast?id=1277333&units=metric&APPID=e69c9716f6019064c973daa6348cbea9')
             .then(response => response.json())
             .then(json => this.setState({ data: json.list }));
     }

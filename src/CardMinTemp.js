@@ -8,7 +8,7 @@ const CardMinTemp = ({ minTemp }) => (
 );
 
 CardMinTemp.propTypes = {
-    minTemp: PropTypes.string.isRequired
+    minTemp: PropTypes.number.isRequired
 };
 
 export default CardMinTemp;

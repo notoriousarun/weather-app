@@ -8,7 +8,7 @@ const CardMaxTemp = ({ maxTemp }) => (
 );
 
 CardMaxTemp.propTypes = {
-    maxTemp: PropTypes.string.isRequired
+    maxTemp: PropTypes.number.isRequired
 };
 
 export default CardMaxTemp;
